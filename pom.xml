@@ -11,7 +11,7 @@
   <description>Spring Boot Application using [Camunda](http://docs.camunda.org).</description>
 
   <properties>
-    <camunda.version>7.16.7-ee</camunda.version>
+    <camunda.version>7.18.0-ee</camunda.version>
     <springBoot.version>2.5.5</springBoot.version>
 
     <maven.compiler.source>1.8</maven.compiler.source>

@@ -23,12 +23,15 @@ public class CreateTweetDelegate implements JavaDelegate {
     if (content.equals("network error")) {
       throw new RuntimeException("network error occured");
     }
-    AccessToken accessToken = new AccessToken("220324559-CO8TfUmrcoCrvFHP4TacgToN5hLC8cMw4n2EwmHo", "WvVureFv5TBWTGhESgGe3fqZM7XbGMuyIhxB84zgcoUER");
+
+    // Fill out credentials to call twitter
+    AccessToken accessToken = new AccessToken("MY_ACCESS_TOKEN", "MY_ACCESS_TOKEN_SECRET");
     Twitter twitter = new TwitterFactory().getInstance();
-    twitter.setOAuthConsumer("lRhS80iIXXQtm6LM03awjvrvk", "gabtxwW8lnSL9yQUNdzAfgBOgIMSRqh7MegQs79GlKVWF36qLS");
+    twitter.setOAuthConsumer("MY_API_KEY", "MY_API_KEY_SECRET");
     twitter.setOAuthAccessToken(accessToken);
     try {
-      twitter.updateStatus(content);
+      //twitter.updateStatus(content);
+      new TwitterDummy().updateStatus(content);
     } catch (TwitterException e) {
       if (e.getErrorCode() == 187) {
         throw new BpmnError("duplicateTweet", e.getLocalizedMessage());
